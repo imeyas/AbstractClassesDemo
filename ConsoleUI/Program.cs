@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleUI
+namespace AbstractInheritance
 {
     class Program
     {
@@ -16,28 +16,88 @@ namespace ConsoleUI
 
             #region Vehicles
 
-            /*
-             * Create an abstract class called Vehicle
-             * The vehicle class shall have three string properties Year, Make, and Model
-             * Set the defaults to something generic in the Vehicle class
-             * Vehicle shall have an abstract method called DriveAbstract with no implementation
-             * Vehicle shall have a virtual method called DriveVirtual with a base implementation.
-             */
 
-            /* 
-             * Now create 2 non-abstract classes: Car and Motorcycle, that inherit from Vehicle
-             * Add a distict property in the 2 derived classes such as HasTrunk for Car and HasSideCart for Motorcycle
-             * Provide the implementations for the abstract methods
-             * Only in the Motorcycle class will you override the virtual drive method
-            */
 
             // Create a list of Vehicle called vehicles
+
+            var vehicles = new List<Vehicle>();
 
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
              * - new it up as one of each derived class
              * Set the properties with object initializer syntax
              */
+
+            Console.WriteLine("\nFirst car driving in Abtract and Virtual modes:\n");
+            var car1 = new Car()
+            {
+                Make = "Tesla",
+                Model = "S3XY",
+                Year = 2023
+            };
+
+            car1.DriveAbstract();
+            car1.DriveVirtual();
+
+            Console.WriteLine("\n----------------------------------\n");
+
+            var motorcycle1 = new Motorcycle()
+            {
+                Make = "Harley-Davidson",
+                Model = "Road King",
+                Year = 2021
+            };
+
+            Console.WriteLine("\nFirst motorcyle driving in Abtract and Virtual modes:\n");
+            motorcycle1.DriveAbstract();
+            motorcycle1.DriveVirtual();
+
+            Console.WriteLine("\n----------------------------------\n");
+
+            Vehicle vehicle1 = new Car()
+            {
+                Make = "Tesla",
+                Model = "Model S",
+                Year = 2017
+
+            };
+
+            Vehicle vehicle2 = new Car()
+            {
+                HasTrunk = true,
+                Make = "Tesla",
+                Model = "Model Y",
+                Year = 2022
+            };
+
+            vehicles.Add(car1);
+            vehicles.Add(motorcycle1);
+            vehicles.Add(vehicle1);
+            vehicles.Add(vehicle2);
+
+            Console.WriteLine("\n----------------------------------\n");
+
+            Console.WriteLine($"\nHere is a list of the vehicles currently available based on your Make, Model and Year requirements:\n");
+
+            foreach (var vehicle in vehicles)
+            {
+                if (vehicle == car1)
+                {
+                    Console.WriteLine($"\nThis {car1.Make} is part of the {car1.Model} release from the year {car1.Year}\n");
+                }
+                else if (vehicle == motorcycle1)
+                {
+                    Console.WriteLine($"\nThis {motorcycle1.Make} is part of the {motorcycle1.Model} release from the year {motorcycle1.Year}\n");
+                }
+                else if (vehicle == vehicle1)
+                {
+                    Console.WriteLine($"\nThis {vehicle1.Make} is part of the {vehicle1.Model} release from the year {vehicle1.Year}\n");
+                }
+                else if (vehicle == vehicle2)
+                {
+                    Console.WriteLine($"\nThis {vehicle2.Make} is part of the {vehicle2.Model} release from the year {vehicle2.Year}\n");
+                }
+            }
 
             /*
              * Add the 4 vehicles to the list
