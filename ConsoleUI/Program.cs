@@ -31,6 +31,7 @@ namespace AbstractInheritance
             Console.WriteLine("\nFirst car driving in Abtract and Virtual modes:\n");
             var car1 = new Car()
             {
+                HasTrunk = true,
                 Make = "Tesla",
                 Model = "S3XY",
                 Year = 2023
@@ -43,6 +44,7 @@ namespace AbstractInheritance
 
             var motorcycle1 = new Motorcycle()
             {
+                HasSideCart = true,
                 Make = "Harley-Davidson",
                 Model = "Road King",
                 Year = 2021
@@ -56,6 +58,7 @@ namespace AbstractInheritance
 
             Vehicle vehicle1 = new Car()
             {
+                HasTrunk = true,
                 Make = "Tesla",
                 Model = "Model S",
                 Year = 2017
@@ -77,7 +80,7 @@ namespace AbstractInheritance
 
             Console.WriteLine("\n----------------------------------\n");
 
-            Console.WriteLine($"\nHere is a list of the vehicles currently available based on your Make, Model and Year requirements:\n");
+            Console.WriteLine($"\nHere is a list of the vehicles currently available based on your type, make, model and year requirements:\n");
 
             foreach (var vehicle in vehicles)
             {
@@ -87,7 +90,7 @@ namespace AbstractInheritance
                 }
                 else if (vehicle == motorcycle1)
                 {
-                    Console.WriteLine($"\nThis {motorcycle1.Make} is part of the {motorcycle1.Model} release from the year {motorcycle1.Year}\n");
+                    Console.WriteLine($"\nThis {motorcycle1.Make} is part of the {motorcycle1.Model} release from the year {motorcycle1.Year}.\n");
                 }
                 else if (vehicle == vehicle1)
                 {
